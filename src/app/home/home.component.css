@@ -1,0 +1,14 @@
+section:first-of-type {
+  background-image: url("../../assets/IMGS/paladins.png");
+  background-color: var(--home-bgc);
+  background-position: center;
+  background-size: cover;
+}
+section:first-of-type span {
+  color: var(--btn-bg-color);
+}
+section:first-of-type p {
+  color: var(--home-color);
+  font-weight: 300;
+  font-size: 20px;
+}

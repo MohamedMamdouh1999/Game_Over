@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg shadow navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand text-white me-lg-5" [routerLink]="['/home']"><img src="assets/IMGS/logo.png" alt="Game Over">Game Over</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul *ngIf="isLogin" class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/games', 'all']">All</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', 'racing']">Racing</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', 'sports']">Sports</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', 'shooter']">Shooter</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', 'strategy']">Strategy</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', 'zombie']">Zombie</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', 'fantasy']">Fantasy</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', 'action-rpg']">Action RPG</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', 'action']">Action</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', 'flight']">Flight</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', 'battle-royale']">Battle Royale</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', '3d']">3D</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', '2d']">2D</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'category', 'horror']">Horror</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sort By</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'sort-by', 'release-date']">Release Date</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'sort-by', 'popularity']">Popularity</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'sort-by', 'alphabetical']">Alphabetical</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'sort-by', 'relevance']">Relevance</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Platforms</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'platforms', 'pc']">PC</a></li>
+            <li><a class="dropdown-item text-black" [routerLink]="['/games', 'platforms', 'browser']">Browser</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul *ngIf="isLogin" class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a (click)="signOut()" class="btn">Log Out</a>
+        </li>
+      </ul>
+      <ul *ngIf="!isLogin" class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+        <li class="nav-item">
+          <a class="nav-link pe-lg-4 pb-3 pb-lg-0" [routerLink]="['/login']">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-width" [routerLink]="['/register']">Join Free</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

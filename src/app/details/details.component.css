@@ -1,0 +1,35 @@
+section {
+  background-position: center;
+  background-size: cover;
+}
+.play-now {
+  background-color: var(--btn-bg-color);
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+.free-btn {
+  cursor: default;
+}
+h6 {
+  color: var(--home-color);
+  margin-bottom: 2px;
+  font-weight: 300;
+}
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: var(--home-color)
+}
+.img,
+video {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: none;
+  transition: all 0.4s;
+}
+video {
+  background-image: url(./../../assets/IMGS/video-game.webp);
+  background-position: center;
+  background-size: cover;
+}

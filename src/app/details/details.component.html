@@ -1,0 +1,89 @@
+<ngx-spinner bdColor="#1c1e22" size="large" color="#7a8288" type="ball-scale-multiple" [showSpinner]="true" [fullScreen]="true"></ngx-spinner>
+<section class="py-5" [style.background-image]="'linear-gradient(rgba(0,0,0,.7),var(--home-bgc)),url(https://www.freetogame.com/g/'+details.id+'/background.jpg)'">
+  <div class="container mt-5 pt-4">
+    <div class="row gy-3 gy-md-0">
+      <div class="col-md-4">
+        <div class="position-relative">
+          <video [autoplay]="true" class="rounded-1 position-relative" [src]="'https://www.freetogame.com/g/'+details.id+'/videoplayback.webm'" loop muted></video>
+          <img (mouseover)="hideImage()" (mouseleave)="hideImage()" [class.opacity-0]="isHide" class="img rounded-1 position-absolute" src={{details.thumbnail}} alt={{details.title}}>
+        </div>
+        <div class="pt-2 d-flex flex-wrap justify-content-between align-items-center">
+          <span class="free-btn btn btn-dark py-2 px-3 my-1 mx-auto">FREE</span>
+          <a href={{details.freetogame_profile_url}} target="_blank" class="play-now btn w-75 my-1 mx-auto">Play Now <i class="fa-solid fa-gamepad"></i></a>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="row gy-3">
+          <div class="col-12">
+            <h2>{{details.title}}</h2>
+            <p *ngIf="details.description" class="ps-3 mt-2">{{details.description}}</p>
+          </div>
+          <div *ngIf="details.minimum_system_requirements?.os !== null && details.minimum_system_requirements?.processor !== null" class="col-12">
+            <h3>Minimum System Requirements</h3>
+            <ul class="list-unstyled ps-3 mt-2">
+              <li *ngFor="let Requirements of details.minimum_system_requirements | keyvalue"><span *ngIf="Requirements.value !== null" class="fw-bold fs-5">{{Requirements.key}}: </span><span *ngIf="Requirements.value !== null">{{Requirements.value}}</span></li>
+            </ul>
+          </div>
+          <div class="col-12">
+            <h3>Additional Information</h3>
+            <div class="row ps-3 mt-2">
+              <div class="col-6">
+                <div *ngIf="details.title">
+                  <h6>Title</h6>
+                  <p>{{details.title}}</p>
+                </div>
+                <div *ngIf="details.publisher" class="py-3">
+                  <h6>Publisher</h6>
+                  <p>{{details.publisher}}</p>
+                </div>
+                <div *ngIf="details.genre">
+                  <h6>Genre</h6>
+                  <p>{{details.genre}}</p>
+                </div>
+              </div>
+              <div class="col-6">
+                <div *ngIf="details.developer">
+                  <h6>Developer</h6>
+                  <p>{{details.developer}}</p>
+                </div>
+                <div *ngIf="details.release_date" class="py-3">
+                  <h6>Release Date</h6>
+                  <p>{{details.release_date}}</p>
+                </div>
+                <div *ngIf="details.platform">
+                  <h6>Platform</h6>
+                  <div class="d-flex justify-content-start align-items-center">
+                    <i *ngIf="details.platform === 'Windows'" class="fa-brands fa-windows"></i>
+                    <i *ngIf="details.platform === 'Web Browser'" class="fa-brands fa-chrome"></i>
+                    <span class="ms-2">{{details.platform}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="screenshots.length !== 0" class="col-12">
+            <h3 class="mb-2 h2">Screenshots</h3>
+            <div id="carouselExampleControlsNoTouching" class="carousel carousel-dark slide" data-bs-ride="carousel" data-bs-touch="false">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img [src]="screenshots[0].image" class="d-block w-100 rounded-1" [alt]="screenshots[0].id">
+                </div>
+                <div class="carousel-item" *ngFor="let img of screenshots">
+                  <img [src]="img.image" class="d-block w-100 rounded-1" [alt]="img.id">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

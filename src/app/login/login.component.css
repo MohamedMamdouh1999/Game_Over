@@ -1,0 +1,15 @@
+.col-lg-6:last-of-type img {
+  height: 72px;
+  width: 108px;
+}
+button,
+button:hover {
+  background-color: var(--btn-login);
+  border-color: var(--btn-brd-login);
+}
+.col-lg-6:last-of-type {
+  background-color: var(--bg-login);
+}
+.text-primary {
+  cursor: pointer;
+}

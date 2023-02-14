@@ -1,0 +1,65 @@
+<ngx-spinner bdColor="#1c1e22" size="large" color="#7a8288" type="ball-scale-multiple" [showSpinner]="true" [fullScreen]="true"></ngx-spinner>
+<div class="container">
+  <div class="row py-5 mt-2">
+    <div class="col-lg-6 d-none d-lg-block p-0 mt-5">
+      <img class="w-100 h-100" src="assets/IMGS/gaming.jpg" alt="Game">
+    </div>
+    <div class="col-lg-6 py-4 px-5 mt-5">
+      <div class="text-center">
+        <h3 class="mb-4">Create My Account!</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm(registerForm)">
+          <div class="row">
+            <div class="col-sm-6">
+              <input formControlName="first_name" class="form-control bg-dark text-white border-0 shadow-none rounded-1" type="text" placeholder="First Name">
+              <div *ngIf="registerForm.get('first_name')?.touched && registerForm.get('first_name')?.errors">
+                <p *ngIf="registerForm.get('first_name')?.getError('required')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> First Name is required</p>
+                <p *ngIf="registerForm.get('first_name')?.getError('minlength')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> First Name minlength is 3</p>
+                <p *ngIf="registerForm.get('first_name')?.getError('maxlength')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> First Name maxlength is 10</p>
+                <p *ngIf="registerForm.get('first_name')?.getError('pattern')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> First Name must start with UpperCase</p>
+              </div>
+            </div>
+            <div class="col-sm-6 mt-3 mt-sm-0">
+              <input formControlName="last_name" class="form-control bg-dark text-white border-0 shadow-none rounded-1" type="text" placeholder="Last Name">
+              <div *ngIf="registerForm.get('last_name')?.touched && registerForm.get('last_name')?.errors">
+                <p *ngIf="registerForm.get('last_name')?.getError('required')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Last Name is required</p>
+                <p *ngIf="registerForm.get('last_name')?.getError('minlength')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Last Name minlength is 3</p>
+                <p *ngIf="registerForm.get('last_name')?.getError('maxlength')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Last Name maxlength is 10</p>
+                <p *ngIf="registerForm.get('last_name')?.getError('pattern')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Last Name must start with UpperCase</p>
+              </div>
+            </div>
+          </div>
+          <div class="my-3">
+            <input formControlName="age" class="form-control bg-dark text-white border-0 shadow-none rounded-1" type="number" placeholder="Age">
+            <div *ngIf="registerForm.get('age')?.touched && registerForm.get('age')?.errors">
+              <p *ngIf="registerForm.get('age')?.getError('required')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Age is required</p>
+              <p *ngIf="registerForm.get('age')?.getError('min')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Age min value is 16</p>
+              <p *ngIf="registerForm.get('age')?.getError('max')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Age max value is 100</p>
+            </div>
+          </div>
+          <div>
+            <input formControlName="email" class="form-control bg-dark text-white border-0 shadow-none rounded-1" type="email" placeholder="Email Address">
+            <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors">
+              <p *ngIf="registerForm.get('email')?.getError('required')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Email is required</p>
+              <p *ngIf="registerForm.get('email')?.getError('email')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Email format is incorrect</p>
+            </div>
+          </div>
+          <div class="my-3">
+            <input formControlName="password" class="form-control bg-dark text-white border-0 shadow-none rounded-1" type="password" placeholder="Password">
+            <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors">
+              <p *ngIf="registerForm.get('password')?.getError('required')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Password is required</p>
+              <p *ngIf="registerForm.get('password')?.getError('pattern')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Password minlength is 5 and maxlength is 15</p>
+            </div>
+          </div>
+          <p *ngIf="error" class="text-danger text-center mb-3">{{error}}</p>
+          <button [disabled]="registerForm.invalid" class="btn text-white w-100 rounded-1 mb-0" type="submit">
+            <span *ngIf="!isLoading">Create Account</span>
+            <i *ngIf="isLoading" class="fa-solid fa-circle-notch fa-spin"></i>
+          </button>
+        </form>
+        <div class="text-muted mt-1">This site is protected by reCAPTCHA and the Google <a class="text-muted text-decoration-underline" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a class="text-muted text-decoration-underline" href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.</div>
+        <hr/>
+        <p>Already a member? <a [routerLink]="['/login']">Login></a></p>
+      </div>
+    </div>
+  </div>
+</div>

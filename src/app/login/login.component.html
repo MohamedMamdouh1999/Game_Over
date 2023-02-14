@@ -1,0 +1,42 @@
+<ngx-spinner bdColor="#1c1e22" size="large" color="#7a8288" type="ball-scale-multiple" [showSpinner]="true" [fullScreen]="true"></ngx-spinner>
+<div class="container">
+  <div class="row py-5 mt-5">
+    <div class="col-lg-6 d-none d-lg-block p-0 mt-5">
+      <img class="w-100 h-100" src="assets/IMGS/gaming.jpg" alt="Game">
+    </div>
+    <div class="col-lg-6 py-4 px-5 mt-5">
+      <div class="text-center">
+        <img src="assets/IMGS/logo.png" alt="Game Over">
+        <h3 class="mb-4">Login To Game Over</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm(loginForm)">
+          <div>
+            <input formControlName="email" class="form-control bg-dark border-0 shadow-none text-white rounded-1" type="email" placeholder="Email">
+            <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.errors">
+              <p *ngIf="loginForm.get('email')?.getError('required')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Email is required</p>
+              <p *ngIf="loginForm.get('email')?.getError('email')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Email format is incorrect</p>
+            </div>
+          </div>
+          <div class="my-3">
+            <input formControlName="password" class="form-control bg-dark border-0 shadow-none text-white rounded-1" type="password" placeholder="Password">
+            <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors">
+              <p *ngIf="loginForm.get('password')?.getError('required')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Password is required</p>
+              <p *ngIf="loginForm.get('password')?.getError('pattern')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Password minlength is 5 and maxlength is 15</p>
+            </div>
+          </div>
+          <p *ngIf="error" class="text-danger text-center mb-3">{{error}}</p>
+          <button [disabled]="loginForm.invalid" class="btn text-white w-100 rounded-1 mb-2" type="submit">
+            <span *ngIf="!isLoading">Login</span>
+            <i *ngIf="isLoading" class="fa-solid fa-circle-notch fa-spin"></i>
+          </button>
+        </form>
+        <hr/>
+        <div>
+          <p (click)="forgotPassword()" class="text-primary">Forgot Password?</p>
+          <p>Not a member yet?
+            <a [routerLink]="['/register']">Create Account></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

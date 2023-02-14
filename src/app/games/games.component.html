@@ -1,0 +1,35 @@
+<ngx-spinner bdColor="#1c1e22" size="large" color="#7a8288" type="ball-scale-multiple" [showSpinner]="true" [fullScreen]="true"></ngx-spinner>
+<section class="py-5">
+  <div class="container mt-3 pt-4">
+    <div *ngIf="showGames.length !==0 && allGames.length > showGames.length" class="py-1 px-2 input-search">
+      <input [(ngModel)]="term" class="form-control bg-dark border-0 shadow-none text-white rounded-1" type="text" placeholder="Search...">
+    </div>
+    <div class="row m-0 gy-4">
+      <div *ngFor="let game of showGames | search:term" class="col-md-3">
+        <div [routerLink]="['/details', game.id]">
+          <div class="shadow card-content">
+            <img [src]="game.thumbnail" class="card-img-top" [alt]="game.title">
+            <div class="card-item p-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <h4 class="card-title">{{game.title}}</h4>
+                <button class="btn-free">FREE</button>
+              </div>
+              <p class="card-discription py-2">{{game.short_description}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <i class="fa-solid fa-square-plus"></i>
+                <div class="d-flex justify-content-center align-items-center">
+                  <span class="card-genre me-2">{{game.genre}}</span>
+                  <i *ngIf="game['platform'] === 'PC (Windows)'" class="fa-brands fa-windows"></i>
+                  <i *ngIf="game['platform'] === 'Web Browser'" class="fa-brands fa-chrome"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 text-center">
+      <a *ngIf="showGames.length !==0 && allGames.length > showGames.length" (click)="seeMore()" class="btn btn-href">Browse Games</a>
+    </div>
+  </div>
+</section>

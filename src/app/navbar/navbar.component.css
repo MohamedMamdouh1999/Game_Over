@@ -1,0 +1,30 @@
+nav {
+  background-color: var(--bgc-nav);
+}
+.navbar-brand img {
+  width: 70px;
+  filter: drop-shadow(1px 1px 3px #1983e6ce);
+}
+.navbar-brand {
+  font-family: var(--brand-font);
+  font-style: italic;
+  font-size: 20px;
+}
+.nav-link {
+  color: var(--text-color)
+}
+.nav-link:hover {
+  color: var(--nav-link-hover);
+}
+.dropdown-item:hover {
+  color: black ;
+}
+.btn {
+  border-color: var(--btn-bg-color);
+  color: var(--btn-bg-color) ;
+}
+@media screen and (max-width:991px) {
+  .btn-width {
+    width: 100%;
+  }
+}

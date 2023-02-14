@@ -1,0 +1,8 @@
+div {
+  background-image: url("../../assets/IMGS/404.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 100vh;
+  width: 100%;
+}

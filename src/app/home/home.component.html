@@ -1,0 +1,26 @@
+<ngx-spinner bdColor="#1c1e22" size="large" color="#7a8288" type="ball-scale-multiple" [showSpinner]="true" [fullScreen]="true"></ngx-spinner>
+<section class="pt-5 pb-4">
+  <div class="container py-5 mt-5 text-center">
+    <h1>Find & track the best <span>free-to-play</span> games!</h1>
+    <p class="py-3">Track what you've played and search for what to play next! Plus get free premium loot!</p>
+    <a [routerLink]="['/games', 'all']" class="btn btn-href">Browse Games</a>
+  </div>
+</section>
+<section class="py-5">
+  <div class="container">
+    <h2 class="pb-5"><i class="fa-solid fa-robot"></i> Personalized Recommendations</h2>
+    <div class="row gy-4 gy-md-0">
+      <div *ngFor="let game of personalizedData" class="col-md-4">
+        <div [routerLink]="['/details', game.id]">
+          <div class="shadow card-content">
+            <img [src]="game.thumbnail" class="card-img-top" [alt]="game.title">
+            <div class="card-item p-3 d-flex justify-content-between align-items-center">
+              <h4 class="card-title">{{game.title}}</h4>
+              <button class="btn-free">FREE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
