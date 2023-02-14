@@ -15,6 +15,8 @@ import { DetailsComponent } from './details/details.component';
 import { SearchPipe } from './search.pipe';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { RouterModule, Routes } from '@angular/router';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    RouterModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    CarouselModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

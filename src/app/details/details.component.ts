@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/services/data.service';
 import { Sreenshots } from '../interface/sreenshots';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-details',
@@ -30,5 +31,15 @@ export class DetailsComponent implements OnInit {
   }
   hideImage():void{
     this.isHide = !this.isHide;
+  }
+  customOptions: OwlOptions = {
+    items: 1,
+    margin: 10,
+    loop: true,
+    dots: false,
+    autoplay: true,
+    autoplayTimeout: 1000,
+    autoplayHoverPause: true,
+    navSpeed: 700
   }
 }
