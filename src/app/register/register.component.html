@@ -50,7 +50,7 @@
               <p *ngIf="registerForm.get('password')?.getError('pattern')" class="text-danger ms-1 text-start"><i class="fa-solid fa-exclamation"></i> Password minlength is 5 and maxlength is 15</p>
             </div>
           </div>
-          <p *ngIf="error" class="text-danger text-center mb-3">{{error}}</p>
+          <p *ngIf="error || success" [ngClass]="{'text-danger': error,'text-success':success}" class="text-center mb-3">{{error}}{{success}}</p>
           <button [disabled]="registerForm.invalid" class="btn text-white w-100 rounded-1 mb-0" type="submit">
             <span *ngIf="!isLoading">Create Account</span>
             <i *ngIf="isLoading" class="fa-solid fa-circle-notch fa-spin"></i>

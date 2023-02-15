@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
     }, 2000);
   }
   error:string = ""
+  success:string = ""
   isLoading:boolean = false
 
   registerForm:FormGroup = new FormGroup({
@@ -45,10 +46,12 @@ export class RegisterComponent implements OnInit {
         next: response => {
           this.isLoading = false
           if(response.message === 'success'){
-            this.error = ""
+            this.error = "";
+            this.success = response.message;
             this._Router.navigate(['/login'])
           } else{
-            this.error = response.errors.email.message
+            this.success = "";
+            this.error = response.errors.email.message;
           }
         }
       })
