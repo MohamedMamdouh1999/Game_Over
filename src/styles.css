@@ -37,6 +37,7 @@ a {
   background-color: var(--bg-login);
 }
 .card-title,
+.card-genre,
 .card-discription {
   overflow: hidden;
   white-space: nowrap;
