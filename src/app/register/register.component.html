@@ -51,7 +51,7 @@
             </div>
           </div>
           <p *ngIf="error || success" [ngClass]="{'text-danger': error,'text-success':success}" class="text-center mb-3">{{error}}{{success}}</p>
-          <button [disabled]="registerForm.invalid" class="btn text-white w-100 rounded-1 mb-0" type="submit">
+          <button [disabled]="registerForm.invalid || isLoading" class="btn text-white w-100 rounded-1 mb-0" type="submit">
             <span *ngIf="!isLoading">Create Account</span>
             <i *ngIf="isLoading" class="fa-solid fa-circle-notch fa-spin"></i>
           </button>

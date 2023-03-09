@@ -24,7 +24,7 @@
             </div>
           </div>
           <p *ngIf="error" class="text-danger text-center mb-3">{{error}}</p>
-          <button [disabled]="loginForm.invalid" class="btn text-white w-100 rounded-1 mb-2" type="submit">
+          <button [disabled]="loginForm.invalid || isLoading" class="btn text-white w-100 rounded-1 mb-2" type="submit">
             <span *ngIf="!isLoading">Login</span>
             <i *ngIf="isLoading" class="fa-solid fa-circle-notch fa-spin"></i>
           </button>
